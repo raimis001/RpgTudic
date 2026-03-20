@@ -5,8 +5,8 @@ public class Day : MonoBehaviour
 {
     public AnimationCurve cycle;
     public Gradient colors;
-
-
+    
+    
     public float dayLength = 100f;
     Light2D sun;
 
