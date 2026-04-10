@@ -1,6 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[System.Serializable]
+public class ItemData
+{
+    public string itemID;
+    public Sprite icon;
+    public string description;
+}
+
 public class InventoryItem
 {
     public string itemID;
@@ -9,7 +17,7 @@ public class InventoryItem
 
 public class Inventory : MonoBehaviour
 {
-    public List<InventoryItem> itemList;
+    public List<InventoryItem> itemList = new List<InventoryItem>();
 
     public void AddItem(string itemID, int count)
     {
@@ -29,6 +37,13 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(string itemID, int count)
     {
-
+        foreach (InventoryItem item in itemList)
+        {
+            if (item.itemID == itemID)
+            {
+                item.count -= count;
+                return;
+            }
+        }
     }
 }
